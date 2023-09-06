@@ -19,4 +19,4 @@ spec:
           image: ${ACCOUNT_ID}.dkr.ecr.ap-northeast-2.amazonaws.com/dev-frontend
           imagePullPolicy: Always
           ports:
-            - containerPort: 80
+            - containerPort: 8080
