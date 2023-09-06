@@ -1,0 +1,22 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-java-api
+  namespace: default
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: demo-java-api
+  template:
+    metadata:
+      labels:
+        app: demo-java-api
+    spec:
+      containers:
+        - name: demo-java-api
+          image: ${ACCOUNT_ID}.dkr.ecr.ap-northeast-2.amazonaws.com/dev-api
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
