@@ -1,22 +1,44 @@
----
 apiVersion: apps/v1
-kind: Deployment
+kind: DaemonSet
 metadata:
-  name: demo-java-api
-  namespace: default
+  name: api-test-deploy
+  labels:
+    app: api-test
 spec:
-  replicas: 3
   selector:
     matchLabels:
-      app: demo-java-api
+      app: api-test
   template:
     metadata:
       labels:
-        app: demo-java-api
+        app: api-test
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: eks.amazonaws.com/nodegroup
+                operator: In
+                values:
+                - dev_gpu_node_group   
       containers:
-        - name: demo-java-api
-          image: ${ACCOUNT_ID}.dkr.ecr.ap-northeast-2.amazonaws.com/dev-api
-          imagePullPolicy: Always
-          ports:
-            - containerPort: 8080
+      - name: api-demo
+        image: 068251041443.dkr.ecr.ap-northeast-2.amazonaws.com/dev-api
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+          - name: properties
+            mountPath: /app/config
+      - name: stable-diffusion
+        image: gadicc/diffusers-api
+        ports:
+          - containerPort: 8000
+      volumes:
+        - name: backnginx-config
+          configMap:
+            name: backnginx-config
+        - name: properties
+          secret:
+            secretName: properties
+
