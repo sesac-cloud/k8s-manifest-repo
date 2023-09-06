@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: demo-frontend
-          image: ${ACCOUNT_ID}.dkr.ecr.ap-northeast-2.amazonaws.com/dev-frontend
+          image: 068251041443.dkr.ecr.ap-northeast-2.amazonaws.com/dev-frontend
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
