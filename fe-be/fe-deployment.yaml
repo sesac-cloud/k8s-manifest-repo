@@ -22,7 +22,7 @@ spec:
             - containerPort: 4000
           volumeMounts:
             - name: nodeenv
-              mountPath: usr/app/env
+              mountPath: /usr/app/env
       volumes:
         - name: nodeenv
             secret:
