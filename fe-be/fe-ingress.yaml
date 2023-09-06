@@ -24,4 +24,4 @@ spec:
             service:
               name: demo-frontend
               port:
-                number: 8080
+                number: 443
