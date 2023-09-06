@@ -25,5 +25,5 @@ spec:
               mountPath: /usr/app/env
       volumes:
         - name: nodeenv
-            secret:
-              secretName: nodeenv
+          secret:
+            secretName: nodeenv
