@@ -10,5 +10,5 @@ spec:
     app: demo-frontend
   ports:
     - protocol: TCP
-      port: 4000
+      port: 443
       targetPort: 4000
