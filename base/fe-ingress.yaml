@@ -2,22 +2,26 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: "frontend-ingress"
+  name: "demo-nodejs-backend-ingress"
   namespace: default
   annotations:
     kubernetes.io/ingress.class: alb
-    alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/target-type: ip
-    alb.ingress.kubernetes.io/group.name: eks-demo-group
-    alb.ingress.kubernetes.io/group.order: '3'
+    alb.ingress.kubernetes.io/target-type: "ip"
+    alb.ingress.kubernetes.io/scheme: "internet-facing"
+    alb.ingress.kubernetes.io/subnets: "subnet-03628fea51d0c82fc,subnet-0688cb839bad550d3"
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80,"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/certificate-arn: "arn:aws:acm:ap-northeast-2:068251041443:certificate/c29bd5fd-abd1-4f1e-b2e0-8c12c5bc8f65"
+    alb.ingress.kubernetes.io/ssl-redirect: "443"
+    alb.ingress.kubernetes.io/backend-protocol: "HTTP"
 spec:
   rules:
-    - http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: "demo-frontend"
-                port:
-                  number: 80
+  - host: www.jecheolso.site
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: "demo-nodejs-backend"
+              port:
+                number: 8080
