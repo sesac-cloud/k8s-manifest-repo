@@ -1,4 +1,4 @@
----
+--- /usr/app
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -19,4 +19,11 @@ spec:
           image: 068251041443.dkr.ecr.ap-northeast-2.amazonaws.com/dev-frontend
           imagePullPolicy: Always
           ports:
-            - containerPort: 8080
+            - containerPort: 4000
+          volumeMounts:
+            - name: nodeenv
+              mountPath: usr/app/env
+      volumes:
+        - name: nodeenv
+            secret:
+              secretName: nodeenv
