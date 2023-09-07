@@ -24,7 +24,7 @@ spec:
                 - dev_gpu_node_group   
       containers:
       - name: api-demo
-        image: 068251041443.dkr.ecr.ap-northeast-2.amazonaws.com/dev-frontend:2620cb727c478f8fab77a66bc29f151266297d53
+        image: 068251041443.dkr.ecr.ap-northeast-2.amazonaws.com/dev-api:2620cb727c478f8fab77a66bc29f151266297d53
         ports:
         - containerPort: 8080
         volumeMounts:
