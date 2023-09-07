@@ -26,7 +26,7 @@ spec:
                 - dev_gpu_node_group 
       containers:
         - name: demo-frontend
-          image: 068251041443.dkr.ecr.ap-northeast-2.amazonaws.com/dev-frontend:156ce616bafe1f79bee802fc8d7159ee5ad769be
+          image: 068251041443.dkr.ecr.ap-northeast-2.amazonaws.com/dev-frontend:8fe72422a5d06e91184965523a9926b984d7f214
           imagePullPolicy: Always
           ports:
             - containerPort: 4000
