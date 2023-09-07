@@ -13,7 +13,7 @@ metadata:
     alb.ingress.kubernetes.io/certificate-arn: "arn:aws:acm:ap-northeast-2:068251041443:certificate/66784ca5-d834-45e2-a159-572b0a57ae57"
     alb.ingress.kubernetes.io/ssl-redirect: "443"
     alb.ingress.kubernetes.io/backend-protocol: "HTTP"
-    alb.ingress.kubernetes.io/wafv2-acl-arn: "arn:aws:wafv2:ap-northeast-2:068251041443:regional/webacl/waf_web_acl_k8s/766019fb-b14c-458e-b77b-963d814a2667"
+  #  alb.ingress.kubernetes.io/wafv2-acl-arn: "arn:aws:wafv2:ap-northeast-2:068251041443:regional/webacl/waf_web_acl_k8s/766019fb-b14c-458e-b77b-963d814a2667"
 spec:
   rules:
   - host: www.jecheolso.site
