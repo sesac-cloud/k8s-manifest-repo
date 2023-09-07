@@ -8,11 +8,12 @@ metadata:
     kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/target-type: "ip"
     alb.ingress.kubernetes.io/scheme: "internet-facing"
-    alb.ingress.kubernetes.io/subnets: "subnet-0dde2f6292faf3d6f,subnet-0db861d6f5e2c22ab"
+    alb.ingress.kubernetes.io/subnets: "subnet-0ca1cbfbf3e69f4f5,subnet-0a2371dee25a44a27"
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80,"HTTPS": 443}]'
     alb.ingress.kubernetes.io/certificate-arn: "arn:aws:acm:ap-northeast-2:068251041443:certificate/9cb13b00-7f7a-439b-8b08-ef7b6e0ecb23"
     alb.ingress.kubernetes.io/ssl-redirect: "443"
     alb.ingress.kubernetes.io/backend-protocol: "HTTP"
+    alb.ingress.kubernetes.io/wafv2-acl-arn: "arn:aws:wafv2:ap-northeast-2:068251041443:regional/webacl/waf_web_acl_k8s/9e328a01-15b9-4ee6-8558-1626cb4acf93"
 spec:
   rules:
   - host: www.jecheolso.site
