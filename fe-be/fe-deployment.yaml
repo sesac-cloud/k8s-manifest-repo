@@ -9,11 +9,21 @@ spec:
   selector:
     matchLabels:
       app: demo-frontend
+  revisionHistoryLimit: 5
   template:
     metadata:
       labels:
         app: demo-frontend
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: eks.amazonaws.com/nodegroup
+                operator: notIn
+                values:
+                - dev_gpu_node_group 
       containers:
         - name: demo-frontend
           image: 068251041443.dkr.ecr.ap-northeast-2.amazonaws.com/dev-frontend:7b6ff010e9082a0893c134e8262ea130bf9f5228
@@ -27,3 +37,4 @@ spec:
         - name: nodeenv
           secret:
             secretName: nodeenv
+      
