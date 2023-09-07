@@ -33,6 +33,14 @@ spec:
           volumeMounts:
             - name: nodeenv
               mountPath: /usr/app/env
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "300m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+
       volumes:
         - name: nodeenv
           secret:
