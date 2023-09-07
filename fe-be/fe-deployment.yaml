@@ -21,7 +21,7 @@ spec:
             nodeSelectorTerms:
             - matchExpressions:
               - key: eks.amazonaws.com/nodegroup
-                operator: notIn
+                operator: NotIn
                 values:
                 - dev_gpu_node_group 
       containers:
