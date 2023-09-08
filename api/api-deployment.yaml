@@ -28,7 +28,7 @@ spec:
         ports:
           - containerPort: 8000
       - name: api-demo
-        image: 068251041443.dkr.ecr.ap-northeast-2.amazonaws.com/dev-api:a521ef0f291f865f75fdb42cbeb00180c4bfe130
+        image: 068251041443.dkr.ecr.ap-northeast-2.amazonaws.com/dev-api:11ee6cc4b5ff4f5858cbe8576297150c0ba42f61
         ports:
         - containerPort: 8080
         volumeMounts:
