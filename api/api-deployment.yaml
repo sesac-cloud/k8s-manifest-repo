@@ -23,6 +23,10 @@ spec:
                 values:
                 - dev_gpu_node_group   
       containers:
+      - name: stable-diffusion
+        image: gadicc/diffusers-api
+        ports:
+          - containerPort: 8000
       - name: api-demo
         image: 068251041443.dkr.ecr.ap-northeast-2.amazonaws.com/dev-api:2620cb727c478f8fab77a66bc29f151266297d53
         ports:
@@ -30,10 +34,6 @@ spec:
         volumeMounts:
           - name: properties
             mountPath: /app/config
-      - name: stable-diffusion
-        image: gadicc/diffusers-api
-        ports:
-          - containerPort: 8000
       volumes:
         - name: backnginx-config
           configMap:
