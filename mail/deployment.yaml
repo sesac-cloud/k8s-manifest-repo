@@ -25,7 +25,7 @@ spec:
                 - dev_gpu_node_group 
       containers:
         - name: mailsender
-          image: 068251041443.dkr.ecr.ap-northeast-2.amazonaws.com/dev-mailsender:111
+          image: 068251041443.dkr.ecr.ap-northeast-2.amazonaws.com/dev-mailsender:ef6370aa89749d4df76ba4392fea729fd4bf0ad0
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
