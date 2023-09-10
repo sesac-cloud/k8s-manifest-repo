@@ -40,4 +40,4 @@ spec:
             name: backnginx-config
         - name: properties
           secret:
-            secretName: properties
+            secretName: stable-diffusion-properties
