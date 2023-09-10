@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: maskapi
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: maskapi
+  revisionHistoryLimit: 5
+  template:
+    metadata:
+      labels:
+        app: maskapi
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: eks.amazonaws.com/nodegroup
+                operator: NotIn
+                values:
+                - dev_gpu_node_group 
+      containers:
+        - name: maskapi
+          image: 068251041443.dkr.ecr.ap-northeast-2.amazonaws.com/dev-mask-api:111
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - name: properties
+              mountPath: /app/config
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "200m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+      volumes:
+        - name: properties
+          secret:
+            secretName: mask-api-properties
+      
