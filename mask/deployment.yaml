@@ -25,7 +25,7 @@ spec:
                 - dev_gpu_node_group 
       containers:
         - name: maskapi
-          image: 068251041443.dkr.ecr.ap-northeast-2.amazonaws.com/dev-mask-api:d7efb665005b3f6441a24039b1599ccb64c92c1c
+          image: 068251041443.dkr.ecr.ap-northeast-2.amazonaws.com/dev-mask-api:57975de7a59e74cafd8afd41c80d6d06e2f9d62a
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
