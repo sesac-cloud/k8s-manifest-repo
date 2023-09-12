@@ -23,7 +23,7 @@ spec:
               - key: eks.amazonaws.com/nodegroup
                 operator: NotIn
                 values:
-                - dev_gpu_node_group 
+                - prod_gpu_node_group 
       containers:
         - name: demo-frontend
           image: 068251041443.dkr.ecr.ap-northeast-2.amazonaws.com/prod-frontend:c09f0369dd74273fea7331edb280eb4ff316366b
