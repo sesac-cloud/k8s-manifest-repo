@@ -14,6 +14,9 @@ spec:
     metadata:
       labels:
         app: demo-frontend
+        admission.datadoghq.com/enabled: "true"
+      annotations:
+        admission.datadoghq.com/js-lib.version: v3.6.0
     spec:
       affinity:
         nodeAffinity:
@@ -26,6 +29,13 @@ spec:
                 - prod_gpu_node_group 
       containers:
         - name: demo-frontend
+          env:
+            - name: DD_AGENT_HOST
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.hostIP
+            - name: DD_LOGS_INJECTION
+              value: "true"
           image: 068251041443.dkr.ecr.ap-northeast-2.amazonaws.com/prod-frontend:c09f0369dd74273fea7331edb280eb4ff316366b
           imagePullPolicy: Always
           ports:
