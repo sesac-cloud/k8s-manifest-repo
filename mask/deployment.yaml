@@ -37,7 +37,7 @@ spec:
               value: "true"
             - name: DD_IAST_ENABLED
               value: "true"
-          image: 068251041443.dkr.ecr.ap-northeast-2.amazonaws.com/dev-mask-api:57975de7a59e74cafd8afd41c80d6d06e2f9d62a
+          image: 068251041443.dkr.ecr.ap-northeast-2.amazonaws.com/prod-mask-api:3cfc9b4af9616b4f07e15785eec1beb52fccd4d2
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
