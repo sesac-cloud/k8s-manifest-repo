@@ -24,7 +24,7 @@ spec:
               - key: eks.amazonaws.com/nodegroup
                 operator: In
                 values:
-                - dev_gpu_node_group   
+                - prod_gpu_node_group   
       containers:
       - name: stable-diffusion
         image: gadicc/diffusers-api
