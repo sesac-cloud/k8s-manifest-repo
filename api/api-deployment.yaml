@@ -12,6 +12,9 @@ spec:
     metadata:
       labels:
         app: api-test
+        admission.datadoghq.com/enabled: "true"
+      annotations:
+        admission.datadoghq.com/java-lib.version: v1.20.1
     spec:
       affinity:
         nodeAffinity:
@@ -28,6 +31,15 @@ spec:
         ports:
           - containerPort: 8000
       - name: api-demo
+        env:
+          - name: DD_PROFILING_ENABLED
+            value: "true"
+          - name: DD_LOGS_INJECTION
+            value: "true"
+          - name: DD_APPSEC_ENABLED
+            value: "true"
+          - name: DD_IAST_ENABLED
+            value: "true"
         image: 068251041443.dkr.ecr.ap-northeast-2.amazonaws.com/dev-api:4885554f0c31342cf748e5bcfcdf243f06d2dab8
         ports:
         - containerPort: 8080
