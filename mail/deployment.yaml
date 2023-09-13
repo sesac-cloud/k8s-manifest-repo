@@ -37,7 +37,7 @@ spec:
               value: "true"
             - name: DD_IAST_ENABLED
               value: "true"
-          image: 068251041443.dkr.ecr.ap-northeast-2.amazonaws.com/dev-mailsender:baa9746f0da56a213f85c10203c05f91254634ca
+          image: 068251041443.dkr.ecr.ap-northeast-2.amazonaws.com/prod-mailsender:79d1812df987c916e23ed581935f01f6579464bc
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
