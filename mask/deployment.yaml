@@ -13,6 +13,9 @@ spec:
     metadata:
       labels:
         app: maskapi
+        admission.datadoghq.com/enabled: "true"
+      annotations:
+        admission.datadoghq.com/java-lib.version: v1.20.1
     spec:
       affinity:
         nodeAffinity:
@@ -25,6 +28,15 @@ spec:
                 - dev_gpu_node_group 
       containers:
         - name: maskapi
+          env:
+            - name: DD_PROFILING_ENABLED
+              value: "true"
+            - name: DD_LOGS_INJECTION
+              value: "true"
+            - name: DD_APPSEC_ENABLED
+              value: "true"
+            - name: DD_IAST_ENABLED
+              value: "true"
           image: 068251041443.dkr.ecr.ap-northeast-2.amazonaws.com/dev-mask-api:57975de7a59e74cafd8afd41c80d6d06e2f9d62a
           imagePullPolicy: Always
           ports:
