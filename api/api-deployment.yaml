@@ -40,7 +40,7 @@ spec:
             value: "true"
           - name: DD_IAST_ENABLED
             value: "true"
-        image: 068251041443.dkr.ecr.ap-northeast-2.amazonaws.com/dev-api:4885554f0c31342cf748e5bcfcdf243f06d2dab8
+        image: 068251041443.dkr.ecr.ap-northeast-2.amazonaws.com/prod-api:db5c710de70273ec9050f31a6b3cc191c73298e9
         ports:
         - containerPort: 8080
         volumeMounts:
