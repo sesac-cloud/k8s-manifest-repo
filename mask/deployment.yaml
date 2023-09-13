@@ -25,7 +25,7 @@ spec:
               - key: eks.amazonaws.com/nodegroup
                 operator: NotIn
                 values:
-                - dev_gpu_node_group 
+                - prod_gpu_node_group 
       containers:
         - name: maskapi
           env:
