@@ -1,15 +1,13 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: DaemonSet
 metadata:
   name: api-test-deploy
   labels:
     app: api-test
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app: api-test
-  revisionHistoryLimit: 5
   template:
     metadata:
       labels:
@@ -26,16 +24,7 @@ spec:
               - key: eks.amazonaws.com/nodegroup
                 operator: In
                 values:
-                - prod_gpu_node_group
-        podAntiAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            - labelSelector:
-                matchExpressions:
-                  - key: app
-                    operator: In
-                    values:
-                      - api-test
-              topologyKey: "kubernetes.io/hostname"
+                - prod_gpu_node_group   
       containers:
       - name: stable-diffusion
         image: gadicc/diffusers-api
@@ -68,17 +57,18 @@ spec:
 
 
 
-
 # apiVersion: apps/v1
-# kind: DaemonSet
+# kind: Deployment
 # metadata:
 #   name: api-test-deploy
 #   labels:
 #     app: api-test
 # spec:
+#   replicas: 1
 #   selector:
 #     matchLabels:
 #       app: api-test
+#   revisionHistoryLimit: 5
 #   template:
 #     metadata:
 #       labels:
@@ -95,7 +85,16 @@ spec:
 #               - key: eks.amazonaws.com/nodegroup
 #                 operator: In
 #                 values:
-#                 - prod_gpu_node_group   
+#                 - prod_gpu_node_group
+#         podAntiAffinity:
+#           requiredDuringSchedulingIgnoredDuringExecution:
+#             - labelSelector:
+#                 matchExpressions:
+#                   - key: app
+#                     operator: In
+#                     values:
+#                       - api-test
+#               topologyKey: "kubernetes.io/hostname"
 #       containers:
 #       - name: stable-diffusion
 #         image: gadicc/diffusers-api
@@ -124,3 +123,8 @@ spec:
 #         - name: properties
 #           secret:
 #             secretName: stable-diffusion-properties
+
+
+
+
+
