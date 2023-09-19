@@ -36,7 +36,7 @@ spec:
                   fieldPath: status.hostIP
             - name: DD_LOGS_INJECTION
               value: "true"
-          image: 068251041443.dkr.ecr.ap-northeast-2.amazonaws.com/prod-frontend:535e1f19ab226bc7c7bd0db0915fbc5b4218d8d4
+          image: 068251041443.dkr.ecr.ap-northeast-2.amazonaws.com/prod-frontend:ee9c27ec94bc07df54e7426e6587f1bbd3c99b18
           imagePullPolicy: Always
           ports:
             - containerPort: 4000
